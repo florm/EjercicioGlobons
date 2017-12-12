@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PruebaEF2.Models.Persona> 
+
+@{
+    ViewBag.Title = "Index";
+}
+<!--esta vista recibe un IEnumerable (listado) de Personas, entonces lo que retorno en el controlador,
+    en la accion Index debe ser un lista de personas -->
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar Persona", "Create")
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumeroDocumento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion.calle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion.numero)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumeroDocumento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            @*@item.FechaNacimiento.ToShortDateString()*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion.calle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion.numero)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }, new { @class = "btn btn-default" }) 
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }, new { @class = "btn btn-default" }) 
+            @Html.ActionLink("Borrar", "Delete", new { id=item.Id }, new { @class = "aEliminar btn btn-default" })
+        </td>
+    </tr>
+}
+
+</table>
+@section scripts{
+    <script>
+        $(".aEliminar").click(function (event) {
+            if (!confirm("Esta seguro que desea eliminar ?")) {
+                event.preventDefault();
+            }
+        });
+    </script>
+}
