@@ -28,5 +28,19 @@ namespace PruebaEF2.Models
             }
             return true;
         }
+
+        public int BuscarDireccion(string calle, int numero)
+        {
+            foreach (var item in Direcciones)
+            {
+                if (item.calle == calle && item.numero==numero)
+                {
+                    return item.Id;
+                }
+            }
+
+            return 0;
+            
+        }
     }
 }

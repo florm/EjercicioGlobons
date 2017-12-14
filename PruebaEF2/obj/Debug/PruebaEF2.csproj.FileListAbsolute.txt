@@ -75,3 +75,4 @@ c:\users\flor\documents\visual studio 2017\Projects\PruebaEF2\PruebaEF2\bin\es\S
 c:\users\flor\documents\visual studio 2017\Projects\PruebaEF2\PruebaEF2\bin\es\System.Web.WebPages.Razor.resources.dll
 c:\users\flor\documents\visual studio 2017\Projects\PruebaEF2\PruebaEF2\obj\Debug\PruebaEF2.dll
 c:\users\flor\documents\visual studio 2017\Projects\PruebaEF2\PruebaEF2\obj\Debug\PruebaEF2.pdb
+C:\Users\Flor\Documents\Visual Studio 2017\Projects\PruebaEF2\PruebaEF2\obj\Debug\PruebaEF2.csprojResolveAssemblyReference.cache
