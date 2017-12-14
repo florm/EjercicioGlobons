@@ -7,89 +7,92 @@
     en la accion Index debe ser un lista de personas -->
 <h2 class="col-md-12">Lista de Personas</h2>
 
+<div class="tabla">
+    <table class="table table-hover">
+        <tr class="columnas">
+            <th class="columnas">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th class="columnas">
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th class="columnas">
+                @Html.DisplayNameFor(model => model.NumeroDocumento)
+            </th>
+            <th class="columnas">
+                @Html.DisplayNameFor(model => model.FechaNacimiento)
+            </th>
+            <th class="columnas">
+                @Html.DisplayNameFor(model => model.Direccion.calle)
+            </th>
+            <th class="columnas">
+                @Html.DisplayNameFor(model => model.Direccion.numero)
+            </th>
+            <th></th>
+        </tr>
 
-<table class="table table-hover">
-    <tr class="columnas">
-        <th class="columnas">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th class="columnas">
-            @Html.DisplayNameFor(model => model.Apellido)
-        </th>
-        <th class="columnas">
-            @Html.DisplayNameFor(model => model.NumeroDocumento)
-        </th>
-        <th class="columnas">
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
-        </th>
-        <th class="columnas">
-            @Html.DisplayNameFor(model => model.Direccion.calle)
-        </th>
-        <th class="columnas">
-            @Html.DisplayNameFor(model => model.Direccion.numero)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            var tm = "#myModal" + item.Id;
+            var mid = "myModal" + item.Id;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroDocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
 
-@foreach (var item in Model) {
-    var tm = "#myModal" + item.Id;
-    var mid = "myModal" + item.Id;
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroDocumento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaNacimiento)
-            
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion.calle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion.numero)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }, new { @class = "btn btn-default" }) 
-            @Html.ActionLink("Detalles", "Details", new { id=item.Id }, new { @class = "btn btn-default" }) 
-            
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="@tm">
-                Borrar
-            </button>
-            <!--MODAL-->
-            <div class="modal fade" id="@mid">
-                <div class="modal-dialog" role="dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Confirmar Eliminación</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Se eliminará a <span><b>@item.Nombre @item.Apellido</b></span>
-                            del registro
-                        </div>
-                        <div class="modal-footer">
-                            @Html.ActionLink("Confirmar", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion.calle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion.numero)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-default" })
+
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="@tm">
+                        Borrar
+                    </button>
+                    <!--MODAL-->
+                    <div class="modal fade" id="@mid">
+                        <div class="modal-dialog" role="dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Confirmar Eliminación</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Se eliminará a <span><b>@item.Nombre @item.Apellido</b></span>
+                                    del registro
+                                </div>
+                                <div class="modal-footer">
+                                    @Html.ActionLink("Confirmar", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!--FIN MODAL-->
-        </td>
-    </tr>
-}
+                    <!--FIN MODAL-->
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>
 
-<p>
+
+<p id="btnAgregarNuevo">
     
     <a href="/Persona/Create" class="btn btn-primary">
         <span class="glyphicon glyphicon-user"></span> Agregar Nuevo

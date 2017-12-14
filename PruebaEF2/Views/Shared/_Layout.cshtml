@@ -10,33 +10,38 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body class="container">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Aplicacion Ejercicio", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Personas", "Index", "Persona")</li>
-                </ul>
-            </div>
+   <div class="col-md-2">
+       <div class="navbar navbar-default">
+           <div class="container">
+               <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                   </button>
+                   @Html.ActionLink("Menu", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+               </div>
+               <div class="navbar-collapse collapse">
+                   <ul class="nav navbar-nav">
+                       <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                       <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                       <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                       <li>@Html.ActionLink("Personas", "Index", "Persona")</li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+   </div>
+    <div class="col-md-10 principal">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            </footer>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

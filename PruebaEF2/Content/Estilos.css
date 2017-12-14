@@ -1,10 +1,16 @@
 ﻿
 .btn-default:hover {
-    background-color: #428bca;
+    background-color: #50cec2;
+}
+a.btn.btn-default:hover, button.btn.btn-default:hover, input.btn.btn-default:hover {
+    color: #fff;
 }
 
 .navbar-default {
     background-color: #50cec2;
+   
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 
@@ -14,9 +20,9 @@ h2.col-md-12 {
 }
 
 dl.dl-horizontal {
-    width: 30%;
+    width: 50%;
     margin: 45px auto;
-    padding: 3px;
+    padding: 15px;
     box-shadow: #909094 3px 3px 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -28,7 +34,7 @@ body.modal-open{
 }
 
 .modal-header {
-    background-color: #428bca;
+    background-color: #50cec2;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -39,5 +45,66 @@ body.modal-open{
 
 h4.modal-title {
     color: white;
+    text-align: center;
+}
+
+
+/*pagina principal*/
+.navbar-nav > li {
+    border: 1px solid #758885;
+    border-radius: 15px;
+    background-color: #7c8281;
+    margin-top: 20px;
+    padding: 5px;
+    
+    margin-right: 10px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar-collapse.collapse {
+    text-align: center;
+   
+}
+ul.nav.navbar-nav {
+    text-align: center;
+}
+
+footer{
+    text-align: right;
+}
+
+@media (min-width: 768px){
+    .navbar-nav > li{
+        width: 107px;
+    }
+    .navbar-header{
+        display: none;
+    }
+    
+}
+
+@media (min-width: 992px){
+    /*desde el max hasta un ancho minimo de 992 section aplica el estilo, con tamaños mas chicos ya no hay valor de height*/
+    .navbar-default{
+        height: 550px;
+    }
+    .principal {
+        border: 2px ridge #50CEC1;
+        border-radius: 4px;
+        height: 550px;
+    }
+}
+
+/*lista personas*/
+.tabla {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+#btnAgregarNuevo{
     text-align: center;
 }

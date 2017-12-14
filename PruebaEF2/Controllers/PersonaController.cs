@@ -124,23 +124,7 @@ namespace PruebaEF2.Controllers
                     personaDB.NumeroDocumento = persona.NumeroDocumento;
                     personaDB.FechaNacimiento = persona.FechaNacimiento;
 
-                    //necesito cambiar la DireccionId, porque esa misma direccion la pueden tener varias personas, entonces no puedo cambiar el contenido de calle y numero para 
-                    //ese mismo id porque estaria alterando los datos de otra persona que tiene el mismo DireccionId.
-                    //por lo tanto necesito generar un nuevo registro en la table direccion y asignarlo a esta persona
-                    //lo que todavia no se como hacer es buscar si existe ese mismo registro de calle + numero y asignarle ese id de direccion al DireccionId de la persona
-                        //Direccion nueva = new Direccion();
-                        //nueva.calle = persona.Direccion.calle;
-                        //nueva.numero = persona.Direccion.numero;
-                        //db.Direcciones.Add(nueva);
-                        //db.SaveChanges();
-
-                        //personaDB.DireccionId = nueva.Id;
-                        //db.SaveChanges();
-                    //esto funciona bien, solo faltaria preguntar si la calle y numero que recibe es diferente a lo que tiene, pero al
-                    ///hacer el if personaDB.Domicilio.calle y lo mismo .numero me dice que es null... Por lo tanto asi como esta me genera un registro nuevo de
-                    //calle y numero que se agrega a la tabla direccion
-
-                    
+                                        
                     var numeroId = db.BuscarDireccion(persona.Direccion.calle, persona.Direccion.numero);
                     if (numeroId!=0)
                     {

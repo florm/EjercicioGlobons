@@ -1,0 +1,77 @@
+﻿
+.btn-default:hover {
+    background-color: #428bca;
+}
+
+.navbar-default {
+    background-color: #50cec2;
+   
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+h2.col-md-12 {
+    padding: 10px;
+    text-align: center;
+}
+
+dl.dl-horizontal {
+    width: 30%;
+    margin: 45px auto;
+    padding: 3px;
+    box-shadow: #909094 3px 3px 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+}
+
+body.modal-open{
+    margin-right: 107px;
+}
+
+.modal-header {
+    background-color: #428bca;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-header .close {
+    margin-top: -20px;
+}
+
+h4.modal-title {
+    color: white;
+    text-align: center;
+}
+
+
+/*pagina principal*/
+@media (min-width: 1000px) {
+    .sidebar-nav .navbar .navbar-collapse {
+        padding: 0;
+        max-height: none;
+    }
+
+    .sidebar-nav .navbar ul {
+        float: none;
+        display: block;
+    }
+
+    .sidebar-nav .navbar li {
+        float: left;
+        clear: both;
+        display: block;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 5px;
+        padding: 10px;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        background-color: blue;
+    }
+}
+
+
+
