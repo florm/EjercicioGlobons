@@ -114,11 +114,3 @@ footer{
 .novalido {
     background-color: #f3a5a5;
 }
-
-.error, .text-danger{
-    color: red;
-}
-
-.input-validation-error {
-    background-color: #f3a5a5;
-}

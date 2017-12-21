@@ -51,38 +51,6 @@ namespace PruebaEF2.Controllers
             {
                 return View();
             }
-            try
-            {
-                var fechaActual = DateTime.Today;
-                if (persona.FechaNacimiento >= fechaActual)
-                {
-                    throw new Exception("Error");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", "La fecha no puede ser posterior a la fecha actual - " + ex.Message);
-                return View(persona);
-            }
-
-            try
-            {
-                var db2 = new PersonaContext();
-                if (db2.BuscarDNI(persona.NumeroDocumento) == false)
-                {
-                    throw new Exception("Error");
-
-                }
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("", "Ya existe el DNI - " + ex.Message);
-                return View(persona);
-            }
-                
-                         
-                    
             using (var db = new PersonaContext())
             {
                 db.Direcciones.Add(persona.Direccion);
@@ -174,6 +142,37 @@ namespace PruebaEF2.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult VerificarDni(int NumeroDocumento)
+        {
+
+            using (var db = new PersonaContext())
+            {
+                var dni = (from u in db.Personas
+                                where u.NumeroDocumento == NumeroDocumento
+                                select new { NumeroDocumento }).FirstOrDefault();
+
+
+                if (dni != null)
+                {
+                    //Already registered  
+                    return Json(false);
+                }
+                else
+                {
+                    //Available to use  
+                    return Json(true);
+                }
+            }
+                
+
+            
+
+        }
+
         
-    }
+    
+
+
+}
 }

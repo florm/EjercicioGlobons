@@ -14,6 +14,9 @@ namespace PruebaEF2
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/validacion").Include(
+                        "~/Scripts/validacion.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/moment").Include(
                         "~/Scripts/moment.js"));
 
