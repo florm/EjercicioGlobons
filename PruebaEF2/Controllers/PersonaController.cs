@@ -143,11 +143,16 @@ namespace PruebaEF2.Controllers
         }
 
         [HttpPost]
-        public JsonResult VerificarDni(int NumeroDocumento)
+        public JsonResult VerificarDni(int NumeroDocumento, int? Id)
         {
 
             using (var db = new PersonaContext())
             {
+                Persona persona = db.Personas.Find(Id);
+                if(Id!=null && persona.NumeroDocumento == NumeroDocumento)
+                {
+                    return Json(true);
+                }
                 var dni = (from u in db.Personas
                                 where u.NumeroDocumento == NumeroDocumento
                                 select new { NumeroDocumento }).FirstOrDefault();
@@ -155,12 +160,12 @@ namespace PruebaEF2.Controllers
 
                 if (dni != null)
                 {
-                    //Already registered  
+                    //ya esta registrado 
                     return Json(false);
                 }
                 else
                 {
-                    //Available to use  
+                    //dni no registrado 
                     return Json(true);
                 }
             }

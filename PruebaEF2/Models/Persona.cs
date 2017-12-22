@@ -26,8 +26,9 @@ namespace PruebaEF2.Models
 
         [Required(ErrorMessage = "El campo {0} no puede estar vacio")]
         [Display(Name ="DNI")]
-        [Remote("VerificarDni", "Persona", HttpMethod = "POST", ErrorMessage = "Ya existe el numero de DNI")]
-        //[ValorDni(8)]
+        [Remote("VerificarDni", "Persona", AdditionalFields = "Id", HttpMethod = "POST", ErrorMessage = "Ya existe el numero de DNI")]
+        [ValorDni(8)]
+        
         public int NumeroDocumento { get; set; }
        
 

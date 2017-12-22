@@ -65,7 +65,7 @@ function validarNumeroDocumento() {
 
         NumeroDocumento.addClass("novalido");
         errorNumeroDocumento.addClass("error");
-        errorNumeroDocumento.text("Debe completar su apellido");
+        errorNumeroDocumento.text("Debe completar su DNI");
 
         return false;
     }
@@ -156,6 +156,8 @@ NumeroDocumento.blur(validarNumeroDocumento);
 FechaNacimiento.blur(validarFechaNacimiento);
 Direccion_calle.blur(validarDireccionCalle);
 Direccion_numero.blur(validarDireccionNumero);
+
+
 
 
 
